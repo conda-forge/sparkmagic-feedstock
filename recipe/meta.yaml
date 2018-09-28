@@ -1,7 +1,7 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.12.5" %}
+{% set version = "0.12.6" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "f189e4f3d5bb9e090ca3ffb9b915521e86a424629e2cf7df771699d34a21c25e" %}
+{% set hash_val = "044bc04e683438d68cfc90ff2f6180a243dc4f9dd2477b0ea9405cc65bb40c1b" %}
 
 package:
     name: {{ name }}
