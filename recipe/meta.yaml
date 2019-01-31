@@ -1,7 +1,7 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.12.6" %}
+{% set version = "0.12.7" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "044bc04e683438d68cfc90ff2f6180a243dc4f9dd2477b0ea9405cc65bb40c1b" %}
+{% set hash_val = "874b40e4e3b9d81b89626e52a1c8ce60fd38e933c78d422440448f90fb1f0dc8" %}
 
 package:
     name: {{ name }}
@@ -13,7 +13,7 @@ source:
     {{ hash_type }}: {{ hash_val }}
 
 build:
-    number: 1000
+    number: 0
     skip: true  # [win]
     script: python setup.py install
 
