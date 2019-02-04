@@ -20,6 +20,7 @@ build:
 requirements:
     build:
         - python
+        - pip
     run:
         - python
         - notebook >=4.2
