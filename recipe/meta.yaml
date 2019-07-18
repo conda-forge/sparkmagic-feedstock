@@ -9,13 +9,13 @@ package:
 
 source:
     fn: {{ name }}-{{ version }}.tar.gz
-    url: https://github.com/jupyter-incubator/{{ name }}/archive/{{ version }}.tar.gz
+    url: https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz
     {{ hash_type }}: {{ hash_val }}
 
 build:
     number: 0
     skip: true  # [win]
-    script: cd {{ name }} && "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+    script: cd {{ name }} && "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
     build:
