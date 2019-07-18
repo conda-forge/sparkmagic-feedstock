@@ -1,7 +1,7 @@
 {% set name = "sparkmagic" %}
 {% set version = "0.12.8" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "83eacaafdb483eb7843b053dadd111512b2a471c02f75698934a6dfb9508951f" %}
+{% set hash_val = "1f69766c86b4501b47abe67494a5f5001a466c7d6d5f56cf664e776bbe8c2dae" %}
 
 package:
     name: {{ name }}
@@ -9,13 +9,13 @@ package:
 
 source:
     fn: {{ name }}-{{ version }}.tar.gz
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    url: https://github.com/jupyter-incubator/{{ name }}/archive/{{ version }}.tar.gz
     {{ hash_type }}: {{ hash_val }}
 
 build:
     number: 0
     skip: true  # [win]
-    script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+    script: cd {{ name }} && "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
     build:
@@ -23,17 +23,17 @@ requirements:
         - pip
     run:
         - python
-        - notebook >=4.2
-        - ipykernel >=4.2.2
-        - ipywidgets >=5.0.0
-        - ipython >=4.0.2
+        - notebook >=4.2,<6
+        - ipykernel >=4.2.2,<5
+        - ipywidgets >=5.0.0,<8
+        - ipython >=4.0.2,<7
         - widgetsnbextension
-        - hdijupyterutils
-        - autovizwidget
+        - hdijupyterutils >0.6
+        - autovizwidget >0.6
         - numpy
-        - pandas
+        - pandas >=0.17.1
         - requests
-        - requests-kerberos
+        - requests-kerberos >=0.8
 
 test:
     imports:
@@ -43,6 +43,7 @@ about:
     home: https://github.com/jupyter-incubator/sparkmagic
     license: BSD 3-clause
     summary: Jupyter magics and kernels for working with remote Spark clusters
+    license_file: LICENSE.md
 
 extra:
   recipe-maintainers:
