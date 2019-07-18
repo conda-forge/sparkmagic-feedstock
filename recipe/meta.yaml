@@ -1,50 +1,50 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.12.7" %}
-{% set hash_type = "sha256" %}
-{% set hash_val = "874b40e4e3b9d81b89626e52a1c8ce60fd38e933c78d422440448f90fb1f0dc8" %}
+{% set version = "0.12.8" %}
 
 package:
-    name: {{ name }}
-    version: {{ version }}
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-    fn: {{ name }}-{{ version }}.tar.gz
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    {{ hash_type }}: {{ hash_val }}
+  url: "https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz"
+  sha256: "1f69766c86b4501b47abe67494a5f5001a466c7d6d5f56cf664e776bbe8c2dae"
 
 build:
-    number: 0
-    skip: true  # [win]
-    script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 0
+  noarch: "python"
+  script: "cd sparkmagic && {{ PYTHON }} -m pip install . -vv"
 
 requirements:
-    build:
-        - python
-        - pip
-    run:
-        - python
-        - notebook >=4.2
-        - ipykernel >=4.2.2
-        - ipywidgets >=5.0.0
-        - ipython >=4.0.2
-        - widgetsnbextension
-        - hdijupyterutils
-        - autovizwidget
-        - numpy
-        - pandas
-        - requests
-        - requests-kerberos
+  host:
+    - pip
+    - python
+  run:
+    - autovizwidget >=0.6
+    - hdijupyterutils >=0.6
+    - ipykernel >=4.2.2,<5
+    - ipython >=4.0.2,<7
+    - ipywidgets >5.0.0,<8.0
+    - notebook >=4.2,<6.0
+    - numpy
+    - pandas >=0.17.1
+    - python
+    - requests
+    - requests-kerberos >=0.8.0
+    - tornado >=4
 
 test:
-    imports:
-        - sparkmagic
+  imports:
+    - sparkmagic
 
 about:
-    home: https://github.com/jupyter-incubator/sparkmagic
-    license: BSD 3-clause
-    summary: Jupyter magics and kernels for working with remote Spark clusters
+  home: https://github.com/jupyter-incubator/sparkmagic
+  license: BSD-3-Clause
+  license_family: BSD
+  summary: Jupyter magics and kernels for working with remote Spark clusters
+  license_file: LICENSE.md
 
 extra:
   recipe-maintainers:
     - danielfrg
     - itamarst
+    - dbast
