@@ -18,7 +18,7 @@ build:
     script: cd {{ name }} && "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
-    build:
+    host:
         - python
         - pip
     run:
