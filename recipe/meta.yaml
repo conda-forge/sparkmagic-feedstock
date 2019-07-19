@@ -1,40 +1,85 @@
 {% set name = "sparkmagic" %}
 {% set version = "0.12.8" %}
+{% set hash = "1f69766c86b4501b47abe67494a5f5001a466c7d6d5f56cf664e776bbe8c2dae" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
-
-source:
-  url: "https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz"
-  sha256: "1f69766c86b4501b47abe67494a5f5001a466c7d6d5f56cf664e776bbe8c2dae"
+  name: sparkmagic-split
+  version: {{ version }}
 
 build:
   number: 0
-  noarch: "python"
-  script: "cd sparkmagic && {{ PYTHON }} -m pip install . -vv"
 
-requirements:
-  host:
-    - pip
-    - python
-  run:
-    - autovizwidget >=0.6
-    - hdijupyterutils >=0.6
-    - ipykernel >=4.2.2,<5
-    - ipython >=4.0.2,<7
-    - ipywidgets >5.0.0,<8.0
-    - notebook >=4.2,<6.0
-    - numpy
-    - pandas >=0.17.1
-    - python
-    - requests
-    - requests-kerberos >=0.8.0
-    - tornado >=4
+source:
+  url: "https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz"
+  sha256: {{ hash }}
 
-test:
-  imports:
-    - sparkmagic
+outputs:
+  - name: hdijupyterutils
+    build:
+      noarch: python
+    script: hdijupyterutils.sh
+
+    requirements:
+      host:
+        - pip
+        - python
+      run:
+        - python
+        - notebook >=4.2
+        - ipykernel >=4.2.2
+        - ipywidgets >=5.0.0
+        - ipython >=4.0.2
+        - numpy
+        - pandas
+
+    test:
+      imports:
+        - hdijupyterutils
+
+  - name: autovizwidget
+    build:
+      noarch: python
+    script: autovizwidget.sh
+    requirements:
+      host:
+        - pip
+        - python
+      run:
+        - python
+        - notebook >=4.2
+        - ipywidgets >=5.0.0
+        - plotly
+        - {{ pin_subpackage('hdijupyterutils', exact=True) }}
+    test:
+      imports:
+        - autovizwidget
+
+  - name: sparkmagic
+    build:
+      noarch: python
+    script: sparkmagic.sh
+
+    requirements:
+      host:
+        - pip
+        - python
+      run:
+        - {{ pin_subpackage('autovizwidget', exact=True) }}
+        - {{ pin_subpackage('hdijupyterutils', exact=True) }}
+        - ipykernel >=4.2.2,<5
+        - ipython >=4.0.2,<7
+        - ipywidgets >5.0.0,<8.0
+        - notebook >=4.2,<6.0
+        - numpy
+        - pandas >=0.17.1
+        - python
+        - requests
+        - requests-kerberos >=0.8.0
+        - tornado >=4
+
+    test:
+      imports:
+        - sparkmagic
 
 about:
   home: https://github.com/jupyter-incubator/sparkmagic
