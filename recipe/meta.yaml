@@ -21,10 +21,10 @@ requirements:
   run:
     - autovizwidget >=0.6
     - hdijupyterutils >=0.6
-    - ipykernel >=4.2.2,<5
-    - ipython >=4.0.2,<7
-    - ipywidgets >5.0.0,<8.0
-    - notebook >=4.2,<6.0
+    - ipykernel
+    - ipython >=4.0.2
+    - ipywidgets >5.0.0
+    - notebook >=4.2
     - numpy
     - pandas >=0.17.1
     - python
