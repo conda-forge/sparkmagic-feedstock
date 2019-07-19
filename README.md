@@ -1,13 +1,9 @@
-<!--
-# -*- mode: jinja -*-
--->
-
 About sparkmagic
 ================
 
 Home: https://github.com/jupyter-incubator/sparkmagic
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
@@ -18,9 +14,15 @@ Summary: Jupyter magics and kernels for working with remote Spark clusters
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/sparkmagic-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/sparkmagic-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/sparkmagic-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/sparkmagic-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+
+<table><tr><td>All platforms:</td>
+    <td>
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1938&branchName=master">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/sparkmagic-feedstock?branchName=master">
+      </a>
+    </td>
+  </tr>
+</table>
 
 Current release info
 ====================
@@ -115,4 +117,6 @@ Feedstock Maintainers
 =====================
 
 * [@danielfrg](https://github.com/danielfrg/)
+* [@dbast](https://github.com/dbast/)
+* [@itamarst](https://github.com/itamarst/)
 
