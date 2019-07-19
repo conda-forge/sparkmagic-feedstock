@@ -6,12 +6,12 @@ package:
   name: sparkmagic-split
   version: {{ version }}
 
-build:
-  number: 1
-
 source:
   url: "https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz"
   sha256: {{ hash }}
+
+build:
+  number: 1
 
 outputs:
   - name: hdijupyterutils
