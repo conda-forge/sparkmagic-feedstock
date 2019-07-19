@@ -55,9 +55,8 @@ outputs:
         - autovizwidget
 
   - name: sparkmagic
-    build:
-      noarch: python
-    script: sparkmagic.sh
+    script: sparkmagic.sh  # [not win]
+    #script: sparkmagic.bat  # [win]
 
     requirements:
       host:
