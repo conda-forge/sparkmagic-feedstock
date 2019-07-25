@@ -1,6 +1,6 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.12.8" %}
-{% set hash = "1f69766c86b4501b47abe67494a5f5001a466c7d6d5f56cf664e776bbe8c2dae" %}
+{% set version = "0.12.9" %}
+{% set hash = "2946b7199e5c4d8e6b4a48d6d8f5505f1348ea2189be4a3fdb539073a7f15691" %}
 
 package:
   name: sparkmagic-split
@@ -63,18 +63,20 @@ outputs:
         - pip
         - python
       run:
+        - python
         - {{ pin_subpackage('autovizwidget', exact=True) }}
         - {{ pin_subpackage('hdijupyterutils', exact=True) }}
-        - ipykernel >=4.2.2,<5
-        - ipython >=4.0.2,<7
-        - ipywidgets >5.0.0,<8.0
-        - notebook >=4.2,<6.0
-        - numpy
+        - ipython >=4.0.2
+        - nose
+        - mock
         - pandas >=0.17.1
-        - python
+        - numpy
         - requests
-        - requests-kerberos >=0.8.0
+        - ipykernel
+        - ipywidgets >5.0.0
+        - notebook >=4.2
         - tornado >=4
+        - requests-kerberos >=0.8.0
 
     test:
       imports:
