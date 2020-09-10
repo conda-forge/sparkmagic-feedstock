@@ -5,7 +5,7 @@ Home: https://github.com/jupyter-incubator/sparkmagic
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Jupyter magics and kernels for working with remote Spark clusters
 
