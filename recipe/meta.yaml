@@ -27,14 +27,18 @@ requirements:
     - notebook >=4.2
     - numpy
     - pandas >=0.17.1
-    - python
+    - python >=3.6
     - requests
     - requests-kerberos >=0.8.0
     - tornado >=4
 
 test:
+  requires:
+    - pip
   imports:
     - sparkmagic
+  commands:
+    - pip check
 
 about:
   home: https://github.com/jupyter-incubator/sparkmagic
