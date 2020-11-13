@@ -38,6 +38,7 @@ test:
   imports:
     - sparkmagic
   commands:
+    - pip list
     - pip check
 
 about:
