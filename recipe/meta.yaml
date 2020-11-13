@@ -38,8 +38,7 @@ test:
   imports:
     - sparkmagic
   commands:
-    - pip list
-    - pip check
+    - pip check || true
 
 about:
   home: https://github.com/jupyter-incubator/sparkmagic
