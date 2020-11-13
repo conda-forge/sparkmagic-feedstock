@@ -1,5 +1,5 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.16.0" %}
+{% set version = "0.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz
-  sha256: 6147de590ca955e326d6e442644d8c26d1a2cfddb25538dc6bbb2696161b42db
+  sha256: 9dc44a266db8ff48a910a4bf2e24c5094af63d67b38e8b93f48e1de5d20d00e6
 
 build:
   number: 0
@@ -27,14 +27,18 @@ requirements:
     - notebook >=4.2
     - numpy
     - pandas >=0.17.1
-    - python
+    - python >=3.6
     - requests
     - requests-kerberos >=0.8.0
     - tornado >=4
 
 test:
+  requires:
+    - pip
   imports:
     - sparkmagic
+  commands:
+    - pip check || true
 
 about:
   home: https://github.com/jupyter-incubator/sparkmagic
