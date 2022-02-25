@@ -21,7 +21,7 @@ requirements:
   run:
     - autovizwidget >=0.6
     - hdijupyterutils >=0.6
-    - ipykernel
+    - ipykernel >=4.2.2,<6.0.0
     - ipython >=4.0.2
     - ipywidgets >5.0.0
     - notebook >=4.2
