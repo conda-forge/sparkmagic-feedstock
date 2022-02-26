@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz
-  sha256: 2f34c51143a9e70e344e0e6ba09e27b403c634fe0936e77983fcaa901afdbb69
+  sha256: b04d9b133bfe2a21768460c3ff81c449ad2c732c6e69f3ac8105356a845a38e0
 
 build:
   number: 0
