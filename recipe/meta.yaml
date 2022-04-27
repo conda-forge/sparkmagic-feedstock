@@ -1,5 +1,5 @@
 {% set name = "sparkmagic" %}
-{% set version = "0.19.1" %}
+{% set version = "0.19.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/jupyter-incubator/sparkmagic/archive/{{ version }}.tar.gz
-  sha256: b04d9b133bfe2a21768460c3ff81c449ad2c732c6e69f3ac8105356a845a38e0
+  sha256: f790045f39d8d1eef9dc277ff9c38c6bf573a9fe152ddb34233be72593ea05b6
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: cd sparkmagic && {{ PYTHON }} -m pip install . -vv
 
