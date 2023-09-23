@@ -10,7 +10,7 @@ source:
   sha256: edef54c62ef9e477c3cb5bccbaadf00737d5e0b8ba6d060263d205ae33507ea3
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: cd sparkmagic && {{ PYTHON }} -m pip install . -vv
 
