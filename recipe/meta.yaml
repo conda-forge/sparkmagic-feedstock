@@ -17,7 +17,8 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - poetry-core
+    - python {{ python_min }}
   run:
     - autovizwidget >=0.6
     - hdijupyterutils >=0.6
@@ -27,13 +28,14 @@ requirements:
     - notebook >=4.2
     - numpy
     - pandas >=0.17.1,<2.0.0
-    - python >=3.6
+    - python >={{ python_min }}
     - requests
     - requests-kerberos >=0.8.0
     - tornado >=4
 
 test:
   requires:
+    - python {{ python_min }}
     - pip
   imports:
     - sparkmagic
