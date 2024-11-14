@@ -17,6 +17,7 @@ build:
 requirements:
   host:
     - pip
+    - poetry-core
     - python {{ python_min }}
   run:
     - autovizwidget >=0.6
